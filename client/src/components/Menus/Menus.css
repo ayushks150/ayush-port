@@ -1,0 +1,53 @@
+.navbar-profile-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 2px;
+    height: 150px;
+    width: 150px;
+}
+
+.navbar-profile-pic img {
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover; 
+}
+
+
+.nav-link {
+    color: aquamarine;
+    margin-top: 23px;
+    cursor: pointer;
+    margin-left: 45px;
+}
+
+.nav-link svg {
+    margin-right: 15px;
+}
+
+.nav-link:hover {
+    color: white;
+}
+.nav-link .active {
+    color: #f29f67;
+    border-left: 5px solid #f29f67;
+    padding-left: 10px;
+    text-decoration: none;
+  }
+ 
+.nav-item1 {
+    margin-top: 30px;
+    color: orange;
+}
+
+.nav-link1 {
+    color: aquamarine;
+    margin-top: 32px;
+    cursor: pointer;
+    margin-left: 27px;
+}
+
+
+

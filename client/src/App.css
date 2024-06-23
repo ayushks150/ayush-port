@@ -1,0 +1,13 @@
+.aaa{
+    margin-left: 140px;
+}
+
+@media (max-width: 600px) {
+    .aaa {
+      margin: 0;
+      padding: 0;
+      margin-top: 20px;
+      width: 100%;
+      margin-right: 160px;
+    }
+}
