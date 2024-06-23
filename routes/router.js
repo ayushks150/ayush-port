@@ -11,8 +11,8 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL,
-    pass: process.env.PASS
-  }
+    pass: process.env.PASS,
+  },
 });
 
 // Register user details
@@ -36,7 +36,7 @@ router.post("/register", async (req, res) => {
         from: process.env.EMAIL,
         to: email,
         subject: "Sending email using Node.js",
-        text: "Your response has been submitted"
+        text: "Your response has been submitted",
       };
 
       transporter.sendMail(mailOptions, (error, info) => {
@@ -54,7 +54,7 @@ router.post("/register", async (req, res) => {
         lname,
         email,
         mobile,
-        messages: [{ message }]
+        messages: [{ message }],
       });
 
       await user.save();
@@ -63,7 +63,7 @@ router.post("/register", async (req, res) => {
         from: process.env.EMAIL,
         to: email,
         subject: "Sending email using Node.js",
-        text: "Your response has been submitted"
+        text: "Your response has been submitted",
       };
 
       transporter.sendMail(mailOptions, (error, info) => {
@@ -80,5 +80,13 @@ router.post("/register", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
-
+router.get("/register", async (req, res) => {
+  try {
+    // Validate required fields
+    res.status(200).json({ error: "fffff error" });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+});
 export default router;
