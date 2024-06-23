@@ -37,7 +37,7 @@ const Contact = () => {
 
     try {
       const response = await fetch(
-        `https://ayush-port-pi.vercel.app/api/register`,
+        `https://ayush-singh-rouge.vercel.app/api/register`,
         {
           method: "POST",
           headers: {
