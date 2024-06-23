@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Contact.css";
 import { BsInstagram, BsGithub, BsLinkedin } from "react-icons/bs";
 
@@ -12,7 +12,7 @@ const Contact = () => {
     lname: "",
     email: "",
     mobile: "",
-    message: ""
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -36,13 +36,16 @@ const Contact = () => {
     }
 
     try {
-      const response = await fetch(`${window.location.origin}/api/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ fname, lname, email, mobile, message })
-      });
+      const response = await fetch(
+        `https://ayush-port-pi.vercel.app/api/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ fname, lname, email, mobile, message }),
+        }
+      );
 
       const data = await response.json();
 
@@ -53,7 +56,7 @@ const Contact = () => {
           lname: "",
           email: "",
           mobile: "",
-          message: ""
+          message: "",
         });
       } else {
         toast.error(data.error || "Error submitting the form");
@@ -67,48 +70,103 @@ const Contact = () => {
   return (
     <div className="contact-wrapper">
       <div className="container mb-3 contact">
-        <h2 className='text-center ' >CONTACT WITH</h2>
-        
+        <h2 className="text-center ">CONTACT WITH</h2>
+
         <div className="container mt-2">
           <div className="row justify-content-center">
             <h6 className="text-center">
-              <a href="https://www.linkedin.com/in/ayush-singh-a06b4922a/" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.linkedin.com/in/ayush-singh-a06b4922a/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <BsLinkedin color="blue" size={30} className="ms-2" />
               </a>
-              <a href="https://github.com/ayushks150" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/ayushks150"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <BsGithub color="black" size={30} className="ms-2" />
               </a>
-              <a href="https://www.instagram.com/kumar_aayush00/" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.instagram.com/kumar_aayush00/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <BsInstagram color="blue" size={30} className="ms-2" />
               </a>
             </h6>
             <div className="text-center w-100 my-3">
-              <span><b>----------------------OR----------------------</b></span>
+              <span>
+                <b>----------------------OR----------------------</b>
+              </span>
             </div>
           </div>
-          <Form className='row mt-2' onSubmit={handleSubmit}>
-            <Form.Group className="mb-3 col-lg-6 col-md-6 col-sm-12" controlId="formBasicFname">
+          <Form className="row mt-2" onSubmit={handleSubmit}>
+            <Form.Group
+              className="mb-3 col-lg-6 col-md-6 col-sm-12"
+              controlId="formBasicFname"
+            >
               <Form.Label>First Name</Form.Label>
-              <Form.Control type="text" name='fname' value={formData.fname} onChange={handleChange} />
+              <Form.Control
+                type="text"
+                name="fname"
+                value={formData.fname}
+                onChange={handleChange}
+              />
             </Form.Group>
-            <Form.Group className="mb-3 col-lg-6 col-md-6 col-sm-12" controlId="formBasicLname">
+            <Form.Group
+              className="mb-3 col-lg-6 col-md-6 col-sm-12"
+              controlId="formBasicLname"
+            >
               <Form.Label>Last Name</Form.Label>
-              <Form.Control type="text" name='lname' value={formData.lname} onChange={handleChange} />
+              <Form.Control
+                type="text"
+                name="lname"
+                value={formData.lname}
+                onChange={handleChange}
+              />
             </Form.Group>
-            <Form.Group className="mb-3 col-lg-6 col-md-6 col-sm-12" controlId="formBasicEmail">
+            <Form.Group
+              className="mb-3 col-lg-6 col-md-6 col-sm-12"
+              controlId="formBasicEmail"
+            >
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" name='email' value={formData.email} onChange={handleChange} />
+              <Form.Control
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
             </Form.Group>
-            <Form.Group className="mb-3 col-lg-6 col-md-6 col-sm-12" controlId="formBasicMobile">
+            <Form.Group
+              className="mb-3 col-lg-6 col-md-6 col-sm-12"
+              controlId="formBasicMobile"
+            >
               <Form.Label>Mobile</Form.Label>
-              <Form.Control type="text" name='mobile' value={formData.mobile} onChange={handleChange} />
+              <Form.Control
+                type="text"
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleChange}
+              />
             </Form.Group>
-            <Form.Group className="mb-3 col-12" controlId="exampleForm.ControlTextarea1">
+            <Form.Group
+              className="mb-3 col-12"
+              controlId="exampleForm.ControlTextarea1"
+            >
               <Form.Label>Message</Form.Label>
-              <Form.Control as="textarea" rows={4} name="message" value={formData.message} onChange={handleChange} />
+              <Form.Control
+                as="textarea"
+                rows={4}
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+              />
             </Form.Group>
-            <div className='d-flex justify-content-center'>
-              <Button variant="primary" className='col-lg-6 btt' type="submit">
+            <div className="d-flex justify-content-center">
+              <Button variant="primary" className="col-lg-6 btt" type="submit">
                 Submit
               </Button>
             </div>
