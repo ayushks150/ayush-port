@@ -23,7 +23,7 @@ const Homepage = () => {
         </div>
         <div className="container home-content">
         
-            <h2>Hi 👋 I'm a</h2>
+            <h2>Hi 👋 I'm Ayush</h2>
             <h1>
               <Typewriter
                 options={{
